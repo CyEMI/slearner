@@ -3,7 +3,6 @@ import argparse
 import os.path
 import re
 import sys
-import unittest
 
 SYS_EXT = '.mdl'
 OUTPUT_PREFIX = '_PPD'
@@ -149,7 +148,6 @@ class ModelPreprocessor():
 
         self._unique_kws.add(tokens[0])
 
-
     def _write_output(self, output):
         with open(self._outsys, 'w') as outfile:
             outfile.write(output)
@@ -204,46 +202,6 @@ class BulkModelProcessor:
             self._unique_kw.remove('}')
 
         self._write_unique_kws()
-
-
-class TestModelPreprocessor(unittest.TestCase):
-
-    my_dir = os.path.dirname(os.path.realpath(__file__))
-
-    def test_sampleModel(self):
-        sys_loc = os.path.join(self.my_dir, 'sampleModel20.mdl')
-        out_loc = os.path.join(self.my_dir, 'output')
-
-        mp = ModelPreprocessor(sys_loc, out_loc)
-        result = mp.go(True)
-        self.assertIsNone(result)
-
-    def test_smoke1(self):
-        sys_loc = os.path.join(self.my_dir, 'sampleModel1.mdl')
-        out_loc = os.path.join(self.my_dir, 'output')
-
-        mp = ModelPreprocessor(sys_loc, out_loc)
-        result = mp.go(True)
-        self.assertIsNone(result)
-
-
-class TestBulkModelPreprocessor(unittest.TestCase):
-
-    my_dir = os.path.dirname(os.path.realpath(__file__))
-
-    def test_smoke(self):
-        sys_loc = self.my_dir
-        out_loc = os.path.join(self.my_dir, 'output')
-
-        mp = BulkModelProcessor(sys_loc, out_loc)
-        mp.go(True)
-
-    def test_corpus(self):
-        sys_loc = '/home/cyfuzz/workspace/explore/success'
-        out_loc = '/home/cyfuzz/workspace/explore/processed'
-
-        mp = BulkModelProcessor(sys_loc, out_loc)
-        mp.go(True)
 
 
 if __name__ == '__main__':
