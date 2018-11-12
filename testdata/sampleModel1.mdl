@@ -1,0 +1,30 @@
+Model {
+  Name			  "sampleModel1"
+  GraphicalInterface {
+    NumRootInports	    0
+  }
+  LogicAnalyzerGraphicalSettings ""
+    Block {
+      Name			  "this should not be included"
+      BlockType		      SecondOrderIntegrator
+    }
+  System {
+    Name		    "sampleModel1"
+    Location		    [93, 84, 907, 617]
+    Block {
+      BlockType		      Delay
+      Name		      "cfblk1"
+    }
+    Block {
+      BlockType		      Delay
+      Name		      "cfblk2"
+      SID		      "2"
+    }
+    Line {
+      ZOrder		      1
+      SrcBlock    "cfblk1"
+      DstBlock    "cfblk2"
+      DstBlock    "cfblk1"
+    }
+  }
+}
