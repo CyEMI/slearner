@@ -1,5 +1,6 @@
 from slearner_helpers import get_sl_tokens
 
+
 class PostProcessorInterface:
     pass
 
@@ -63,8 +64,6 @@ class InterleavedSystemPP(PostProcessorInterface):
         added_blocks = set()
 
         for line in lines:
-            final_output.append(self.get_plain_output(line.outputs))
-
             src_blk, dst_blks = self.get_block_names_for_line(line)
 
             # if src_blk not in blocks:
@@ -81,6 +80,8 @@ class InterleavedSystemPP(PostProcessorInterface):
 
                 final_output.append(self.get_plain_output(blocks[dst_blk].outputs))
                 added_blocks.add(dst_blk)
+
+            final_output.append(self.get_plain_output(line.outputs))
 
         final_output.append(entries[-1])
 

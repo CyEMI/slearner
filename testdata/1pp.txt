@@ -1,12 +1,6 @@
 Model {
   Name			  "sampleModel1"
   System {
-    Line {
-      ZOrder		      1
-      SrcBlock    "cfblk1"
-      DstBlock    "cfblk2"
-      DstBlock    "cfblk1"
-    }
     Block {
       BlockType		      Delay
       Name		      "cfblk1"
@@ -15,6 +9,12 @@ Model {
       BlockType		      Delay
       Name		      "cfblk2"
       SID		      "2"
+    }
+    Line {
+      ZOrder		      1
+      SrcBlock    "cfblk1"
+      DstBlock    "cfblk2"
+      DstBlock    "cfblk1"
     }
   }
 }

@@ -6,7 +6,7 @@ Helper utilities for manipulating Simulink models
 
 Usage:
 
-    model_preprocess.py --sys=INPUT_PATH --outdir=OUTPUT_PATH --postprocess=True/False
+    python3 model_preprocess.py --sys=INPUT_PATH --outdir=OUTPUT_PATH --postprocess=True/False
     
 If `INPUT_PATH` is a single file, then just pre-processes that file and writes 
 the new file in `OUTPUT_PATH`. In case of directory, processes all files in `INPUT_PATH`
