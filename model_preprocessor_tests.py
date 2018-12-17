@@ -82,5 +82,5 @@ class TestBulkModelPreprocessor(unittest.TestCase):
         sys_loc = '/home/cyfuzz/workspace/explore/success'
         out_loc = '/home/cyfuzz/workspace/explore/processed'
 
-        mp = BulkModelProcessor(sys_loc, out_loc)
+        mp = BulkModelProcessor(sys_loc, out_loc, postprocess=False)
         mp.go(True)

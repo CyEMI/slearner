@@ -35,11 +35,6 @@ class InterleavedSystemPP(PostProcessorInterface):
             elif tokens[0] == 'DstBlock':
                 dst_blks.append(tokens[1])
 
-        # if src_blk is None:
-        #     assert False
-        # if len(dst_blks) == 0:
-        #     assert False
-
         return src_blk, dst_blks
 
     def get_plain_output(self, entries):
@@ -49,13 +44,12 @@ class InterleavedSystemPP(PostProcessorInterface):
         entries = entry.outputs
         final_output = [entries[0]]
 
-        plain_strings = []
         blocks = {}
         lines = []
 
-        for i in entries[2:len(entries) - 1]:
+        for i in entries[1:len(entries) - 1]:
             if type(i) == str:
-                plain_strings.append(i)
+                final_output.append(i)
             elif i.kw == 'Block':
                 blocks[self.get_block_name(i)] = i
             elif i.kw == 'Line':

@@ -1,6 +1,8 @@
 Model {
   Name			  "sampleModel1"
   System {
+    Name		    "sampleModel1"
+    Location		    [93, 84, 907, 617]
     Block {
       BlockType		      Delay
       Name		      "cfblk1"
